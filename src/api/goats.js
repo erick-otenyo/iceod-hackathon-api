@@ -38,7 +38,7 @@ export default ({ config, cloudant }) => {
                                 goatdistList.push(responseData);
                                 i++;
                                 if (i >= len) {
-                                    response.write(JSON.stringify({ data: goatdistList }));
+                                    response.json({ data: goatdistList });
                                     console.log('ending response...');
                                     response.end();
                                 }

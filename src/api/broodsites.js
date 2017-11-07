@@ -37,7 +37,7 @@ export default ({ config, cloudant }) => {
                                 sitesList.push(responseData);
                                 i++;
                                 if (i >= len) {
-                                    response.write(JSON.stringify({ data: sitesList }));
+                                    response.json({ data: sitesList });
                                     console.log('ending response...');
                                     response.end();
                                 }
