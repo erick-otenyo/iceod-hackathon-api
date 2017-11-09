@@ -69,4 +69,3 @@ export default ({ config, cloudant }) => {
 
     return irrigationforage;
 }
-

@@ -27,6 +27,7 @@ export default ({ config, cloudant }) => {
                         const responseData = {
                             id: doc.doc.id,
                             name: doc.doc.name,
+                            county:doc.doc.county,
                             male: doc.doc.male,
                             female: doc.doc.female,
                             total: doc.doc.total_direct,
