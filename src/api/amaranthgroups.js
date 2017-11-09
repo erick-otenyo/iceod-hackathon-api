@@ -6,6 +6,7 @@ const dbCredentials = {
 
 export default ({ config, cloudant }) => {
 
+    //use projects db
     const db = cloudant.use(dbCredentials.dbName);
 
     let amaranthgroups = Router();
