@@ -13,44 +13,36 @@ export default ({ config, cloudant }) => {
 
     //list all goats -> /api/goats
     broodsites.get('/', (request, response) => {
-        const sitesList = []
+        const List = []
         let i = 0;
-        db.list((err, body) => {
+        db.list({include_docs:true},(err, body) => {
             if (!err) {
                 const len = body.rows.length;
-                console.log('total # of brooding sites  under research  -> ' + len);
+                console.log('total # of groups under research  -> ' + len);
                 if (len == 0) {
                     response.json({ "data": [] })
                 }
                 else {
                     body.rows.forEach(doc => {
-                        db.get(doc.id, {
-                            revs_info: true
-                        }, (err, doc) => {
-                            if (!err) {
-                                const responseData = {
-                                    id: doc._id,
-                                    name: doc.name,
-                                    location: doc.location,
-                                    contact_person:doc.contact_person
-                                };
-                                sitesList.push(responseData);
-                                i++;
-                                if (i >= len) {
-                                    response.json({ data: sitesList });
-                                    console.log('ending response...');
-                                    response.end();
-                                }
-                            } else {
-                                console.log(err);
-                            }
-                        });
+                        const responseData = {
+                            id: doc.doc.id,
+                            name: doc.doc.name,
+                            location: doc.doc.location,
+                            contact_person:doc.doc.contact_person
+                        };
+                        List.push(responseData);
+                        i++;
+                        if (i >= len) {
+                            response.json({ data: List });
+                            console.log('ending response...');
+                            response.end();
+                        }
+
+
                     });
                 }
             }
         });
-
-
     });
 
     //get site  by id

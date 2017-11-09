@@ -13,9 +13,9 @@ export default ({ config, cloudant }) => {
 
     //list all goats -> /api/goats
     poultrygroups.get('/', (request, response) => {
-        const groupsList = []
+        const List = []
         let i = 0;
-        db.list((err, body) => {
+        db.list({include_docs:true},(err, body) => {
             if (!err) {
                 const len = body.rows.length;
                 console.log('total # of groups under research  -> ' + len);
@@ -24,36 +24,26 @@ export default ({ config, cloudant }) => {
                 }
                 else {
                     body.rows.forEach(doc => {
-                        db.get(doc.id, {
-                            revs_info: true
-                        }, (err, doc) => {
-                            if (!err) {
-                                const responseData = {
-                                    id: doc._id,
-                                    name: doc.name,
-                                    male: doc.male,
-                                    female: doc.female,
-                                    total: doc.total_direct,
-                                };
+                        const responseData = {
+                            id: doc.doc.id,
+                            name: doc.doc.name,
+                            male: doc.doc.male,
+                            female: doc.doc.female,
+                            total: doc.doc.total_direct,
+                        };
+                        List.push(responseData);
+                        i++;
+                        if (i >= len) {
+                            response.json({ data: List });
+                            console.log('ending response...');
+                            response.end();
+                        }
 
 
-                                groupsList.push(responseData);
-                                i++;
-                                if (i >= len) {
-                                    response.json({ data: groupsList });
-                                    console.log('ending response...');
-                                    response.end();
-                                }
-                            } else {
-                                console.log(err);
-                            }
-                        });
                     });
                 }
             }
         });
-
-
     });
 
     //get county goat dist by id

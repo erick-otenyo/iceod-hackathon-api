@@ -13,43 +13,33 @@ export default ({ config, cloudant }) => {
 
     //list all goats -> /api/goats
     weightgains.get('/', (request, response) => {
-        const weightList = []
+        const List = []
         let i = 0;
-        db.list((err, body) => {
+        db.list({include_docs:true},(err, body) => {
             if (!err) {
                 const len = body.rows.length;
-                console.log('total #  under research  -> ' + len);
+                console.log('total # of groups under research  -> ' + len);
                 if (len == 0) {
                     response.json({ "data": [] })
                 }
                 else {
                     body.rows.forEach(doc => {
-                        db.get(doc.id, {
-                            revs_info: true
-                        }, (err, doc) => {
-                            if (!err) {
-                                const responseData = {
-                                    id: doc._id,
-                                    treatment: doc.treatment,
-                                    weights: doc.weight
-                                }
-                                weightList.push(responseData);
-                                i++;
-                                if (i >= len) {
-                                    response.json({ data: weightList });
-                                    console.log('ending response...');
-                                    response.end();
-                                }
-                            } else {
-                                console.log(err);
-                            }
-                        });
+                        const responseData = {
+                            id: doc.doc.id,
+                            treatment: doc.doc.treatment,
+                            weights: doc.doc.weight
+                        }
+                        List.push(responseData);
+                        i++;
+                        if (i >= len) {
+                            response.json({ data: List });
+                            console.log('ending response...');
+                            response.end();
+                        }
                     });
                 }
             }
         });
-
-
     });
 
     //get county goat dist by id

@@ -15,35 +15,29 @@ export default ({ config, cloudant }) => {
     irrigationforage.get('/', (request, response) => {
         const List = []
         let i = 0;
-        db.list((err, body) => {
+        db.list({include_docs:true},(err, body) => {
             if (!err) {
                 const len = body.rows.length;
-                console.log('total #  under research  -> ' + len);
+                console.log('total # of groups under research  -> ' + len);
                 if (len == 0) {
                     response.json({ "data": [] })
                 }
                 else {
                     body.rows.forEach(doc => {
-                        db.get(doc.id, {
-                            revs_info: true
-                        }, (err, doc) => {
-                            if (!err) {
-                                const responseData = {
-                                    id: doc._id,
-                                    species: doc.species,
-                                    attributes: doc.attributes
-                                }
-                                List.push(responseData);
-                                i++;
-                                if (i >= len) {
-                                    response.json({ data: List });
-                                    console.log('ending response...');
-                                    response.end();
-                                }
-                            } else {
-                                console.log(err);
-                            }
-                        });
+                        const responseData = {
+                            id: doc.doc.id,
+                            species: doc.doc.species,
+                            attributes: doc.doc.attributes
+                        }
+                        List.push(responseData);
+                        i++;
+                        if (i >= len) {
+                            response.json({ data: List });
+                            console.log('ending response...');
+                            response.end();
+                        }
+
+
                     });
                 }
             }

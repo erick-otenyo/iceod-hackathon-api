@@ -27,9 +27,7 @@ app.use(bodyParser.json({
 initializeDb(cloudant => {
 
     // api router
-    app.get('/', (req, res) => {
-		res.json({message:"Welcome to the iCEOD Hackathon API"})
-	});
+    app.use('/', express.static('public'))
 
     app.use('/api', api({ config, cloudant }));
 
