@@ -305,7 +305,7 @@
               </ul>
           </li>
           <li>
-            <a href="#dataset-title" class="toc-h1 toc-link" data-title="Dataset Title">Dataset Title</a>
+            <a href="#kalro-chicken-alternative-livelihoods-for-asals" class="toc-h1 toc-link" data-title="KALRO Chicken: Alternative livelihoods for ASALs">KALRO Chicken: Alternative livelihoods for ASALs</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#abstract-8" class="toc-h2 toc-link" data-title="Abstract">Abstract</a>
@@ -316,7 +316,7 @@
               </ul>
           </li>
           <li>
-            <a href="#dataset-title-2" class="toc-h1 toc-link" data-title="Dataset Title">Dataset Title</a>
+            <a href="#kalro-arlri-kiboko-range-grass-seeds-collection-and-distribution" class="toc-h1 toc-link" data-title="KALRO-ARLRI, Kiboko Range Grass Seeds Collection and Distribution">KALRO-ARLRI, Kiboko Range Grass Seeds Collection and Distribution</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#abstract-9" class="toc-h2 toc-link" data-title="Abstract">Abstract</a>
@@ -327,13 +327,24 @@
               </ul>
           </li>
           <li>
-            <a href="#dataset-title-3" class="toc-h1 toc-link" data-title="Dataset Title">Dataset Title</a>
+            <a href="#economic-analysis-of-natural-pasture-rehabilitation-through-pasture-reseeding-in-the-southern-rangelands-of-kenya" class="toc-h1 toc-link" data-title="Economic analysis of natural pasture rehabilitation through pasture reseeding in the southern rangelands of Kenya">Economic analysis of natural pasture rehabilitation through pasture reseeding in the southern rangelands of Kenya</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#abstract-10" class="toc-h2 toc-link" data-title="Abstract">Abstract</a>
                   </li>
                   <li>
                     <a href="#get-data-11" class="toc-h2 toc-link" data-title="Get data">Get data</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#benefit-cost-analysis-of-reseeding-using-ox-furrows-and-range-pitting-in-south-eastern-kenya-rangelands" class="toc-h1 toc-link" data-title="Benefit-Cost analysis of reseeding using ox-furrows and range pitting in South-eastern Kenya Rangelands">Benefit-Cost analysis of reseeding using ox-furrows and range pitting in South-eastern Kenya Rangelands</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#abstract-11" class="toc-h2 toc-link" data-title="Abstract">Abstract</a>
+                  </li>
+                  <li>
+                    <a href="#get-data-12" class="toc-h2 toc-link" data-title="Get data">Get data</a>
                   </li>
               </ul>
           </li>
@@ -638,13 +649,13 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><code>GET https://atg-hackathon.mybluemix.net/api/amaranthgroups</code></p>
-<h1 id='dataset-title'>Dataset Title</h1><h3 id='abstract-8'>Abstract</h3>
-<p>Abstract here</p>
+<h1 id='kalro-chicken-alternative-livelihoods-for-asals'>KALRO Chicken: Alternative livelihoods for ASALs</h1><h3 id='abstract-8'>Abstract</h3>
+<p>The livestock sub sector contributes 7.9-10% GDP to the Kenyan economy. Out of the Agricultural GDP, which is 25% of the national GDP, the poultry industry is estimated to contribute about 1.7 %. The industry has over the years, progressed to become one of the most important livestock enterprises particularly in rural households where over 70% of the country’s population live and derive their livelihood. Poultry are the most abundant livestock species, and domestic chicken (98%) are the most important, with other poultry species constituting 2% of the current total estimated population of 32 million birds. Livestock remains the main source of livelihood for communities living in the ASAL areas.  In Kenya, more than 60% of the livestock are found in the ASAL. However, the productivity of livestock in these areas is low. A value chain analysis conducted indicated that the major constraints to livestock productivity in these areas include feed availability, animal diseases and limited animal breeds.</p>
 <h2 id='get-data-9'>Get data</h2>
-<p>This endpoint retrieves all the brooding sites data.</p>
+<p>This endpoint gets chick supply, day old chicks and 4 weeks old chicks.</p>
 <h3 id='http-request-9'>HTTP Request</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
 
-<span class="nx">request</span><span class="p">(</span><span class="s1">'https://atg-hackathon.mybluemix.net/api/endpoint'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">request</span><span class="p">(</span><span class="s1">'https://atg-hackathon.mybluemix.net/api/chicksupply'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> 
 <span class="p">});</span>
 </code></pre>
@@ -654,19 +665,31 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-
+    </span><span class="s2">"county"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baringo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"day_old"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"supply"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"2010"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"2011"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"2012"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"2013"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"2014"</span><span class="p">:</span><span class="w"> </span><span class="mi">5600</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"2015"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"2016"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><code>GET https://atg-hackathon.mybluemix.net/api/endpoint</code></p>
-<h1 id='dataset-title-2'>Dataset Title</h1><h3 id='abstract-9'>Abstract</h3>
-<p>Abstract here</p>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/chicksupply</code></p>
+<h1 id='kalro-arlri-kiboko-range-grass-seeds-collection-and-distribution'>KALRO-ARLRI, Kiboko Range Grass Seeds Collection and Distribution</h1><h3 id='abstract-9'>Abstract</h3>
+<p>The Arid and Range Lands Research Institute has been involved in reseeding of degraded pasture land for over ten years.  The approach has been through use of locally adapted range pasture species which have a higher success rate.  The most common range pasture species were ranked by the community through a socio economic survey that covered three counties viz. Makueni, Kajiado and Taita Taveta (Mnene et al 1998).  The four most ranking species were selected for on farm reseeding trials in in three counties mentioned earlier.  The four range species were; Cenchrus ciliaris (Foxtail Grass), Chloris roxburghiana (Horsetail Grass), Enteropogon macrostachyus (Bush Rye Grass) and Eragrostis superba (Maasai Love Grass).  </p>
+
+<p>As more and more farmers/pastoralists picked up the reseeding technology it become apparent that availability of the seeds for the range grasses was a challenge hindering the progress of rehabilitating degraded pasturelands.  This is because they were no commercial range grass varieties which could be traded commercially. With this in mind KALRO Kiboko embarked on the activity of bulking range grass seeds on station. In addition common interest groups (CIGs) were trained on aspect of range pasture seed production.  Since 2009 approx. 14 ton of range grass has been bulked at the Centre. Out of this approx. 10 ton has been distributed to various stallholders. Makueni County which host the Institute has been the greatest recipient at just over 4 ton. Other notable recipients are the Ministry of Agriculture at approx. 1.7 ton and University of Nairobi and 1.1 ton. In terms of grass bulking was as follows Maasai Love Grass 5.8 ton, Foxtail Grass 4.3 ton, Bush Rye Grass 2.7 ton and Horsetail Grass 1.4 ton. KALRO-ARLRI, Kiboko as collect approx. KES 3.5million in revenue between 2012 and 2016. Out these revenue approx. KES 1.5 million has been received for Maasai love grass, KES 0.9 from Foxtail grass, KES 0.5 million from Bush Rye Grass and KES 0.4 million from Horsetail Grass.</p>
 <h2 id='get-data-10'>Get data</h2>
-<p>This endpoint retrieves all the brooding sites data.</p>
+<p>This endpoint retrieves recipients of the grass seeds.</p>
 <h3 id='http-request-10'>HTTP Request</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
 
-<span class="nx">request</span><span class="p">(</span><span class="s1">'https://atg-hackathon.mybluemix.net/api/endpoint'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">request</span><span class="p">(</span><span class="s1">'https://atg-hackathon.mybluemix.net/api/grass_seed_recipients'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> 
 <span class="p">});</span>
 </code></pre>
@@ -676,34 +699,49 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-
+    </span><span class="s2">"species"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Foxtail"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"recipients"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASARECA LF Project"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"year"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"2009"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2010"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2011"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2012"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2013"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2014"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2015"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"2016"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="err">...</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><code>GET https://atg-hackathon.mybluemix.net/api/endpoint</code></p>
-<h1 id='dataset-title-3'>Dataset Title</h1><h3 id='abstract-10'>Abstract</h3>
-<p>Abstract here</p>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/grass_seed_recipients</code></p>
+<h1 id='economic-analysis-of-natural-pasture-rehabilitation-through-pasture-reseeding-in-the-southern-rangelands-of-kenya'>Economic analysis of natural pasture rehabilitation through pasture reseeding in the southern rangelands of Kenya</h1><h3 id='abstract-10'>Abstract</h3>
+<p>Due to geophysical constraints, poverty and socio-cultural factors prevalent in ASALs of Kenya, the economic potential of reseeding technology are important factor for farmers’ decision making. The outputs, costs of production and profit are hardly considered. This study aimed at evaluating the economics of reseeding natural pasture in the southern rangelands of Makueni County using four range grass species namely; Cenchrus ciliaris (Foxtail grass), Chloris roxburghiana (Horsetail), Enteropogon macrostachyus (Bush rye grass) and Eragrostis superba (Maasai love grass) that were recommended. Allometric technique was adopted to estimate species-specific biomass. Cost benefit analysis was done by estimating parameters of economic efficiency. The result indicates that the four grass species gave a positive net present value, high percentage gross profit margin and a high cost benefit ratio, an indicator of high return to investment. Income per hectare earned from seed and hay production was higher than that obtained from maize production under similar environment. There was also an increase in tropical livestock unit (TLU) and milk production. For a yearlong proper use factor of 50%, safe stocking rate varied from 1.44 to 2.43 ha/TLU/year. Chloris roxburghiana recorded the highest while Enteropogon macrostachyus had the lowest TLU.</p>
 <h2 id='get-data-11'>Get data</h2>
-<p>This endpoint retrieves all the brooding sites data.</p>
-<h3 id='http-request-11'>HTTP Request</h3><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'request'</span><span class="p">);</span>
-
-<span class="nx">request</span><span class="p">(</span><span class="s1">'https://atg-hackathon.mybluemix.net/api/endpoint'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">response</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span> 
-<span class="p">});</span>
-</code></pre>
-<blockquote>
-<p>The above returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-
-  </span><span class="p">},</span><span class="err">...</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p><code>GET https://atg-hackathon.mybluemix.net/api/endpoint</code></p>
+<p>Use the following endpoints</p>
+<h3 id='http-requests'>HTTP Requests</h3><h3 id='get-average-acreages-under-reseeding-in-the-survey'>Get Average acreages under reseeding in the survey</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/acreages</code></p>
+<h3 id='get-average-cash-flow-of-air-dried-bales-of-hay-harvested-per-grass-species-per-hectare-kes'>Get Average cash flow of air-dried bales of hay harvested per grass species per hectare (KES)</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/cash_flow</code></p>
+<h3 id='get-estimated-cost-and-benefit-kes-for-seed-and-hay-production-per-hectare'>Get Estimated cost and benefit (KES) for seed and hay production per hectare</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/cost_benefit</code></p>
+<h3 id='get-average-total-input-cost-kes-per-grass-species-per-hectare-1-ha-2-47-acre-for-hay-and-grass-seed-production'>Get Average total input cost (KES) per grass species per hectare (1 ha=2.47 acre) for hay and grass seed production</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/input_cost</code></p>
+<h3 id='get-estimated-tropical-livestock-units-tlu-for-a-250-kg-cattle-per-day-per-grass-species-per-hectare'>Get Estimated Tropical Livestock Units (TLU) for a 250 kg cattle per day per grass species per hectare</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/livestock_units</code></p>
+<h3 id='get-average-milk-yield-litres-for-different-livestock-species-before-and-after-reseeding'>Get Average milk yield (litres) for different livestock species before and after reseeding</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/milk_yield</code></p>
+<h3 id='get-unit-cost-for-seed-and-hay-production-in-southern-rangelands'>Get Unit cost for seed and hay production in southern rangelands</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/economic_analysis/unit_cost</code></p>
+<h1 id='benefit-cost-analysis-of-reseeding-using-ox-furrows-and-range-pitting-in-south-eastern-kenya-rangelands'>Benefit-Cost analysis of reseeding using ox-furrows and range pitting in South-eastern Kenya Rangelands</h1><h3 id='abstract-11'>Abstract</h3>
+<p>The Arid and Range Lands Research Institute has been promoting reseeding using range grasses such Cenchrus ciliaris (Foxtail grass), Enteropogon macrostachyus (Bush rye grass) and Eragrostis superba (Maasai love grass) with micro-catchments (ox-furrows and crescent shaped pits - Kiboko range pits), as a means of seedbed preparation. Ox-furrows are made using oxen and are less labour intensive than using a hand hoe. A study was carried out in 2009 at the University of Nairobi - Kibwezi Field Station to compare the two methods of land preparation for pasture production. Data was recorded on labour and inputs costs in the two reseeding methods from land preparation to harvesting of hay. Data on hay was estimated by recording aboveground biomass 12 weeks post sowing. Benefit cost ratio (BCR) analysis of the two methods of land preparation was done by comparing the farm gate sale prices of hay as the benefit. Both types of micro-catchments had a BCR of more than one with the range pits giving a slightly higher ratio (2.6) than the ox-plough furrows (2.5). All the grass species also had BCR greater than one.</p>
+<h2 id='get-data-12'>Get data</h2><h3 id='http-request-11'>HTTP Request</h3><h3 id='get-summary-of-input-requirements-and-costs-of-reseeding'>Get Summary of input requirements and costs of reseeding</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/benefit_cost/input_requirement</code></p>
+<h3 id='comparison-of-two-range-reseeding-investments-using-bcr-and-internal-rate-of-return-irr'>Comparison of two range reseeding investments using BCR and Internal Rate of Return (IRR)</h3>
+<p><code>GET https://atg-hackathon.mybluemix.net/api/benefit_cost/comparison</code></p>
 
       </div>
       <div class="dark-box">
